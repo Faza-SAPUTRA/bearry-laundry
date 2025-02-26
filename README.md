@@ -1,66 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://bearrylaundry.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Bearry Laundry Logo">
+  </a>
 </p>
 
-## About Laravel
+<p align="center">
+  <a href="https://github.com/bearrylaundry/framework/actions">
+    <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
+  </a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# 🧼 Bearry Laundry - Sistem Manajemen Laundry Profesional
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Bearry Laundry** adalah sebuah sistem manajemen layanan laundry berbasis **Laravel** yang dirancang untuk membantu bisnis laundry dalam mengelola transaksi, pelanggan, petugas, serta laporan keuangan dengan lebih efisien.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🚀 **Fitur Utama:**
+- **👥 Manajemen Pelanggan** – Mendukung tipe pelanggan Guest & Membership.
+- **👨‍💼 Manajemen Petugas** – Kelola akun petugas dengan peran berbeda.
+- **💰 Transaksi & Pembayaran** – Mendukung berbagai metode pembayaran.
+- **🔔 Notifikasi Real-Time** – Update status pesanan langsung ke pelanggan.
+- **📊 Laporan Keuangan** – Statistik harian, mingguan, dan bulanan.
+- **📂 Export Data** – Simpan laporan transaksi dalam berbagai format.
 
-## Learning Laravel
+## 🛠 Teknologi yang Digunakan
+- **Laravel** – Backend framework modern dan fleksibel.
+- **Filament** – Admin panel yang ringan dan powerful.
+- **MySQL** – Penyimpanan data pelanggan & transaksi.
+- **Tailwind CSS** – Desain responsif dan minimalis.
+- **Livewire** – Komponen interaktif tanpa JavaScript.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🚀 Instalasi
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone Repository**:
+   ```bash
+   git clone https://github.com/bearrylaundry/bearry-laundry.git
+   cd bearry-laundry
+   ```
 
-## Laravel Sponsors
+2. **Install Dependencies**:
+   ```bash
+   composer install
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Setup Environment**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-### Premium Partners
+4. **Konfigurasi Database & Migrasi**:
+   ```bash
+   php artisan migrate --seed
+   ```
 
+5. **Jalankan Aplikasi**:
+   ```bash
+   php artisan serve
+   ```
+   Buka browser dan akses **http://localhost:8000**.
+
+---
+
+## 📂 Struktur Kode
+
+### 📌 **Manajemen Pelanggan**
+- **Model:** `Customer`
+- **Resource:** `CustomerResource`
+- **Fitur:** Tambah/edit pelanggan, validasi nomor telepon, tipe pelanggan (Guest/Membership).
+
+```php
+class CustomerResource extends Resource
+{
+    protected static ?string $model = Customer::class;
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+}
+```
+
+### 📌 **Manajemen Petugas**
+- **Model:** `Petugas`
+- **Resource:** `PetugasResource`
+- **Fitur:** Tambah/edit petugas, akun pengguna, hak akses.
+
+```php
+class PetugasResource extends Resource
+{
+    protected static ?string $model = Petugas::class;
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+}
+```
+
+### 📌 **Transaksi Laundry**
+- **Model:** `Transaksi`
+- **Resource:** `TransaksiResource`
+- **Fitur:** Detail jenis cucian, berat, harga, diskon otomatis, estimasi pengambilan.
+
+```php
+class TransaksiResource extends Resource
+{
+    protected static ?string $model = Transaksi::class;
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
+}
+```
+
+---
+
+## 📚 Dokumentasi
+Untuk panduan lengkap instalasi dan penggunaan, kunjungi **[Bearry Laundry Documentation](https://docs.bearrylaundry.com)**.
+
+---
+
+## 🎯 Kontribusi
+Kami menyambut kontribusi dari komunitas! Ikuti langkah-langkah berikut:
+
+1. **Fork Repository**
+2. **Buat Branch Baru**:  
+   ```bash
+   git checkout -b fitur-baru
+   ```
+3. **Commit Perubahan**:  
+   ```bash
+   git commit -am "Menambahkan fitur baru"
+   ```
+4. **Push ke GitHub**:  
+   ```bash
+   git push origin fitur-baru
+   ```
+5. **Buat Pull Request** ke repository utama.
+
+---
+
+## 📜 Lisensi
+Proyek ini dilisensikan di bawah **MIT License**.  
+Anda bebas menggunakan, memodifikasi, dan mendistribusikan kode ini dengan tetap menyertakan atribusi kepada penulis asli.
+
+```
+MIT License
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software...
+```
+
+---
+
+## 💖 Sponsor
+Terima kasih kepada sponsor yang mendukung pengembangan Bearry Laundry:
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
 - **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+Ingin menjadi sponsor? Hubungi kami di **[sponsor@bearrylaundry.com](mailto:sponsor@bearrylaundry.com)**.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📩 Kontak
+Jika ada pertanyaan, silakan hubungi kami:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+📧 **Email**: [support@bearrylaundry.com](mailto:support@bearrylaundry.com)  
+🌍 **Website**: [bearrylaundry.com](https://bearrylaundry.com)  
+🛠 **Laporkan Bug**: [GitHub Issues](https://github.com/bearrylaundry/bearry-laundry/issues)
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Terima kasih telah menggunakan **Bearry Laundry**! 🚀
