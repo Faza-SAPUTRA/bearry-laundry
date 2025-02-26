@@ -19,28 +19,27 @@
   </a>
 </p>
 
-# 🧼 Bearry Laundry - Sistem Manajemen Laundry Profesional
+## 🚀 Tentang Bearry Laundry
 
-**Bearry Laundry** adalah sebuah sistem manajemen layanan laundry berbasis **Laravel** yang dirancang untuk membantu bisnis laundry dalam mengelola transaksi, pelanggan, petugas, serta laporan keuangan dengan lebih efisien.
+**Bearry Laundry** adalah sebuah sistem manajemen layanan laundry yang dibangun dengan framework Laravel. Sistem ini dirancang untuk memudahkan pengelolaan transaksi, pelanggan, petugas, dan laporan keuangan untuk bisnis laundry. Dengan antarmuka yang intuitif dan fitur yang lengkap, Bearry Laundry membantu pemilik bisnis laundry dalam mengelola operasional sehari-hari secara efisien.
 
-🚀 **Fitur Utama:**
-- **👥 Manajemen Pelanggan** – Mendukung tipe pelanggan Guest & Membership.
-- **👨‍💼 Manajemen Petugas** – Kelola akun petugas dengan peran berbeda.
-- **💰 Transaksi & Pembayaran** – Mendukung berbagai metode pembayaran.
-- **🔔 Notifikasi Real-Time** – Update status pesanan langsung ke pelanggan.
-- **📊 Laporan Keuangan** – Statistik harian, mingguan, dan bulanan.
-- **📂 Export Data** – Simpan laporan transaksi dalam berbagai format.
+### 🌟 Fitur Utama
+- ✅ **Manajemen Pelanggan**: Daftar pelanggan dengan tipe membership atau guest.
+- 👨‍💼 **Manajemen Petugas**: Pengelolaan data petugas dan akun pengguna.
+- 🧺 **Transaksi Laundry**: Proses transaksi laundry dengan detail jenis cucian, berat, dan harga.
+- 🎁 **Diskon Otomatis**: Diskon otomatis untuk pelanggan membership berdasarkan jumlah transaksi atau berat cucian.
+- 📊 **Laporan Keuangan**: Statistik pemasukan harian, mingguan, dan bulanan.
+- 📁 **Export Data**: Fitur export data transaksi ke format yang diinginkan.
+- 🔔 **Notifikasi**: Notifikasi real-time untuk pembaruan status transaksi.
 
 ## 🛠 Teknologi yang Digunakan
-- **Laravel** – Backend framework modern dan fleksibel.
-- **Filament** – Admin panel yang ringan dan powerful.
-- **MySQL** – Penyimpanan data pelanggan & transaksi.
-- **Tailwind CSS** – Desain responsif dan minimalis.
-- **Livewire** – Komponen interaktif tanpa JavaScript.
+- 🚀 **Laravel**: Framework PHP untuk pengembangan aplikasi web.
+- 🏗 **Filament**: Admin panel modern untuk manajemen data.
+- 💾 **MySQL**: Database untuk menyimpan data pelanggan, transaksi, dan lainnya.
+- 🎨 **Tailwind CSS**: Framework CSS untuk desain antarmuka yang responsif.
+- ⚡ **Livewire**: Membuat komponen interaktif tanpa perlu JavaScript.
 
----
-
-## 🚀 Instalasi
+## 📌 Instalasi
 
 1. **Clone Repository**:
    ```bash
@@ -55,12 +54,14 @@
    ```
 
 3. **Setup Environment**:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
+   - Salin file `.env.example` menjadi `.env`.
+   - Konfigurasi database di file `.env`.
+   - Generate key aplikasi:
+     ```bash
+     php artisan key:generate
+     ```
 
-4. **Konfigurasi Database & Migrasi**:
+4. **Migrasi Database**:
    ```bash
    php artisan migrate --seed
    ```
@@ -69,104 +70,82 @@
    ```bash
    php artisan serve
    ```
-   Buka browser dan akses **http://localhost:8000**.
 
----
+6. **Akses Aplikasi**:
+   Buka browser dan akses `http://localhost:8000`.
 
-## 📂 Struktur Kode
+## 📖 Dokumentasi
 
-### 📌 **Manajemen Pelanggan**
-- **Model:** `Customer`
-- **Resource:** `CustomerResource`
-- **Fitur:** Tambah/edit pelanggan, validasi nomor telepon, tipe pelanggan (Guest/Membership).
+Untuk dokumentasi lengkap tentang cara menggunakan Bearry Laundry, silakan kunjungi [Bearry Laundry Documentation](https://docs.bearrylaundry.com). Dokumentasi ini mencakup panduan instalasi, konfigurasi, dan penggunaan fitur-fitur utama.
 
-```php
-class CustomerResource extends Resource
-{
-    protected static ?string $model = Customer::class;
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
-}
-```
+## 🤝 Kontribusi
 
-### 📌 **Manajemen Petugas**
-- **Model:** `Petugas`
-- **Resource:** `PetugasResource`
-- **Fitur:** Tambah/edit petugas, akun pengguna, hak akses.
+Kami sangat menghargai kontribusi dari komunitas. Jika Anda ingin berkontribusi, silakan ikuti panduan berikut:
 
-```php
-class PetugasResource extends Resource
-{
-    protected static ?string $model = Petugas::class;
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-}
-```
+1. **Fork Repository**:
+   - Fork repository ini ke akun GitHub Anda.
 
-### 📌 **Transaksi Laundry**
-- **Model:** `Transaksi`
-- **Resource:** `TransaksiResource`
-- **Fitur:** Detail jenis cucian, berat, harga, diskon otomatis, estimasi pengambilan.
+2. **Buat Branch**:
+   - Buat branch baru untuk fitur atau perbaikan:
+     ```bash
+     git checkout -b fitur-baru
+     ```
 
-```php
-class TransaksiResource extends Resource
-{
-    protected static ?string $model = Transaksi::class;
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
-}
-```
+3. **Commit Perubahan**:
+   - Lakukan perubahan dan commit:
+     ```bash
+     git commit -am 'Menambahkan fitur baru'
+     ```
 
----
+4. **Push ke Branch**:
+   - Push perubahan ke branch Anda:
+     ```bash
+     git push origin fitur-baru
+     ```
 
-## 📚 Dokumentasi
-Untuk panduan lengkap instalasi dan penggunaan, kunjungi **[Bearry Laundry Documentation](https://docs.bearrylaundry.com)**.
-
----
-
-## 🎯 Kontribusi
-Kami menyambut kontribusi dari komunitas! Ikuti langkah-langkah berikut:
-
-1. **Fork Repository**
-2. **Buat Branch Baru**:  
-   ```bash
-   git checkout -b fitur-baru
-   ```
-3. **Commit Perubahan**:  
-   ```bash
-   git commit -am "Menambahkan fitur baru"
-   ```
-4. **Push ke GitHub**:  
-   ```bash
-   git push origin fitur-baru
-   ```
-5. **Buat Pull Request** ke repository utama.
-
----
+5. **Buat Pull Request**:
+   - Buat Pull Request ke repository utama dengan deskripsi yang jelas tentang perubahan yang Anda lakukan.
 
 ## 📜 Lisensi
-Proyek ini dilisensikan di bawah **MIT License**.  
-Anda bebas menggunakan, memodifikasi, dan mendistribusikan kode ini dengan tetap menyertakan atribusi kepada penulis asli.
 
-```
+Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT). Ini berarti Anda bebas menggunakan, memodifikasi, dan mendistribusikan kode ini untuk keperluan pribadi maupun komersial, asalkan menyertakan atribusi kepada penulis asli.
+
+```text
 MIT License
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software...
+
+© 2023 Bearry Laundry
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
----
+## 🌍 Sosial Media
 
-## 💖 Sponsor
-Terima kasih kepada sponsor yang mendukung pengembangan Bearry Laundry:
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
+Jika Anda ingin mengikuti atau terhubung dengan saya, silakan kunjungi:
+- 📷 **Instagram**: [@fazwxs](https://instagram.com/fazwxs)
+- 💼 **LinkedIn**: [Fatir Zaidan Putra](https://www.linkedin.com/in/fatir-zaidan-putra-20250132a/)
 
-Ingin menjadi sponsor? Hubungi kami di **[sponsor@bearrylaundry.com](mailto:sponsor@bearrylaundry.com)**.
+## 📧 Kontak
 
----
+Jika Anda memiliki pertanyaan, masukan, atau masalah teknis, silakan hubungi kami melalui:
 
-## 📩 Kontak
-Jika ada pertanyaan, silakan hubungi kami:
+- ✉️ **Email**: [support@bearrylaundry.com](mailto:support@bearrylaundry.com)
+- 🌐 **Website**: [Bearry Laundry](https://bearrylaundry.com)
+- 🛠 **Issue Tracker**: [GitHub Issues](https://github.com/bearrylaundry/bearry-laundry/issues)
 
-📧 **Email**: [support@bearrylaundry.com](mailto:support@bearrylaundry.com)  
-🌍 **Website**: [bearrylaundry.com](https://bearrylaundry.com)  
-🛠 **Laporkan Bug**: [GitHub Issues](https://github.com/bearrylaundry/bearry-laundry/issues)
-
-Terima kasih telah menggunakan **Bearry Laundry**! 🚀
+Kami akan berusaha merespons secepat mungkin. Terima kasih atas dukungan Anda! 🚀
